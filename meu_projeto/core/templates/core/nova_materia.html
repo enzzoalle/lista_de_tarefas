@@ -1,0 +1,13 @@
+{% extends "core/base.html" %} {% load bootstrap3 %} {% block header %}
+<h2>Nova matéria</h2>
+{% endblock header %} {% block content %}
+
+<form action="{% url 'nova_materia' %}" method="post" class="form">
+      {% csrf_token %}
+      <! – primeira linha do codigo html para form do django –>
+      {% bootstrap_form form %} {% buttons %}
+      <button name="enviar" class="btn btn-primary">Adicionar</button>
+      {% endbuttons %}
+</form>
+
+{% endblock content %}

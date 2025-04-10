@@ -1,0 +1,20 @@
+{% extends "core/base.html" %} {%block header %}
+<div class="text-center">
+      <h1>Acompanhe seu aprendizado</h1>
+</div>
+{%endblock header %} {% block content %}
+ {% if user.is_authenticated %}
+
+ <h2>Esta aplicação foi feita para te ajudar a organizar suas matérias, anotações e comentários da faculdade de forma simples e eficiente. Tenha tudo em um só lugar: acompanhe seu progresso, registre ideias importantes e mantenha seu semestre sob controle.</h2>
+ <h1>Menos bagunça, mais foco. Comece agora e leve sua rotina universitária a outro nível!</h1>
+
+{% else %}
+<h2>
+      <a href="{% url 'register'%}">Crie uma conta</a>
+      ou <a href="{% url 'login' %}">faça login</a> para utilizar o Tarefado!
+</h2>
+
+<h2>Esta aplicação foi feita para te ajudar a organizar suas matérias, anotações e comentários da faculdade de forma simples e eficiente. Tenha tudo em um só lugar: acompanhe seu progresso, registre ideias importantes e mantenha seu semestre sob controle.</h2>
+      <h1>Menos bagunça, mais foco. Comece agora e leve sua rotina universitária a outro nível!</h1>
+
+{% endif %} {% endblock content %}
