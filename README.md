@@ -1,0 +1,1 @@
+A intenção deste projeto é organizar matérias e fazer anotações. Ainda quero implementar uma agenda semanal e adicionar como se fosse um "to do list", com provas/trabalhos futuros ou pendentes. Se tiver alguma sugestão para melhorar algum ponto, me envie uma mensagem aqui: https://www.linkedin.com/in/enzo-allebrand/
