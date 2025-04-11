@@ -32,21 +32,39 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                               </button>
-                              <a class="navbar-brand" href="{% url 'index' %}">Tarefado</a>
+                              <a class="navbar-brand" href="{% url 'index' %}">
+                                    <span class="glyphicon glyphicon-education"></span>
+                                    Tarefado
+                              </a>
                         </div>
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                               <ul class="nav navbar-nav">
-                                    <li><a href="{% url 'materias' %}">Matérias</a></li>
+                                    <li>
+                                          <a href="{% url 'materias' %}">
+                                                <span class="glyphicon glyphicon-th-list" style="font-size: 12px; margin-right: 5px"></span>
+                                                Matérias
+                                          </a>
+                                    </li>
                               </ul>
 
                               <ul class="nav navbar-nav navbar-right">
                                     {% if user.is_authenticated %}
-                                    <li><a href="{% url 'logout' %}">Sair</a></li>
+                                    <li>
+                                          <a href="{% url 'logout' %}">
+                                                <span class="glyphicon glyphicon-log-out" style="font-size: 12px; margin-right: 5px"></span>
+                                                Sair
+                                          </a>
+                                    </li>
                                     <li><a>Olá {{ user.username }}!</a></li>
                                     {% else %}
                                     <li><a href="{% url 'register' %}">Registrar</a></li>
-                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li>
+                                          <a href="{% url 'login' %}">
+                                                <span class="glyphicon glyphicon-log-in" style="font-size: 12px; margin-right: 5px"></span>
+                                                Login
+                                          </a>
+                                    </li>
                                     {% endif %}
                               </ul>
                         </div>
