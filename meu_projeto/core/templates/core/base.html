@@ -58,7 +58,12 @@
                                     </li>
                                     <li><a>Olá {{ user.username }}!</a></li>
                                     {% else %}
-                                    <li><a href="{% url 'register' %}">Registrar</a></li>
+                                    <li>
+                                          <a href="{% url 'register' %}">
+                                                <span class="glyphicon glyphicon-edit" style="font-size: 12px; margin-right: 5px"></span>
+                                                Registrar
+                                          </a>
+                                    </li>
                                     <li>
                                           <a href="{% url 'login' %}">
                                                 <span class="glyphicon glyphicon-log-in" style="font-size: 12px; margin-right: 5px"></span>
