@@ -6,7 +6,7 @@
 
 
 <p>
-      <a href="{% url 'excluir_materia' materia.id %}" method="post" style="display:inline" onsubmit="return confirm('Tem certeza que deseja excluir esta matéria?');">Excluir matéria
+      <a href="{% url 'excluir_materia' materia.id %}" method="post" style="display:inline">Excluir matéria
             {% csrf_token %}
       </a> | 
       <a href="{% url 'novo_comentario' materia.id%}">Adicionar novo comentário</a>
@@ -20,7 +20,7 @@
                   {{ comentario.date_added | date:"d F Y, H:i"}}
                   <small>
                         <a href="{% url 'editar_comentario' comentario.id%}">Editar comentário</a> | 
-                        <a href="{% url 'excluir_comentario' comentario.id %}" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">Excluir comentário
+                        <a href="{% url 'excluir_comentario' comentario.id %}" method="post" style="display:inline">Excluir comentário
                               {% csrf_token %}
                         </a>
                   </small>
