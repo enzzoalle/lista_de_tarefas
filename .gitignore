@@ -1,0 +1,7 @@
+# .gitignore
+# Ignora bancos SQLite3
+*.sqlite3
+db.sqlite3
+meu_projeto/db.sqlite3
+env-linux/
+wp.txt
