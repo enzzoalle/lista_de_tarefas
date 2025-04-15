@@ -1,0 +1,13 @@
+{% extends "core/base.html" %} {% load bootstrap3 %} {% block header %}
+<h1 style="margin-top: -120px; margin-bottom: 20px">Tem certeza que deseja excluir esta matéria e todos seus comentários?</h1>
+<h2 style="margin-bottom: 30px">"{{materia}}"</h2>
+
+{% endblock header %} {% block content %}
+
+<form action="{% url 'excluir_materia' materia.id %}" method="post">
+      {% csrf_token %} {% buttons %}
+      <button name="excluir" class="btn btn-danger" style="border-radius: 8px">Sim, excluir matéria</button>
+      {% endbuttons %}
+</form>
+
+{% endblock content %}

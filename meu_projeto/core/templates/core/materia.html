@@ -1,0 +1,33 @@
+{% extends "core/base.html" %} {% block header %}
+<div style="margin-top: -120px; margin-bottom: 40px">
+<h1>{{ materia }}</h1>
+</div>
+{% endblock header %} {% block content %}
+
+
+<p>
+      <a href="{% url 'excluir_materia' materia.id %}" method="post" style="display:inline" onsubmit="return confirm('Tem certeza que deseja excluir esta matéria?');">Excluir matéria
+            {% csrf_token %}
+      </a> | 
+      <a href="{% url 'novo_comentario' materia.id%}">Adicionar novo comentário</a>
+</p>
+</a>
+
+{% for comentario in comentarios %}
+<div class="panel panel-default">
+      <div class="panel-heading">
+            <h3>
+                  {{ comentario.date_added | date:"d F Y, H:i"}}
+                  <small>
+                        <a href="{% url 'editar_comentario' comentario.id%}">Editar comentário</a> | 
+                        <a href="{% url 'excluir_comentario' comentario.id %}" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">Excluir comentário
+                              {% csrf_token %}
+                        </a>
+                  </small>
+            </h3>
+      </div>
+
+      <div class="panel-body">{{ comentario.text | linebreaks }}</div>
+</div>
+
+{% empty %} Ainda não há comentários. {% endfor %} {% endblock content %}

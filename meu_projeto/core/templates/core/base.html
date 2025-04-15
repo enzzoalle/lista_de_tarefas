@@ -1,0 +1,88 @@
+{%load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+      <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="description" content="Aplicação para organização de matérias e lista de tarefas para faculdade" />
+            <meta name="keywords" content="anotações, anotação, lista de tarefas, lista de tarefa, organização, organizações, faculdade, to do list" />
+            <meta name="author" content="Enzo Allebrand" />
+            <title>Tarefado</title>
+            {% bootstrap_css %} {% bootstrap_javascript %}
+            <style>
+                  .ul-none ul {
+                        display: none;
+                  }
+
+                  .help-block {
+                        display: none;
+                  }
+                  .page-header {
+                        border-bottom: none;
+                        padding-bottom: 0;
+                        margin: 150px 0 10px;
+                  }
+            </style>
+      </head>
+
+      <body>
+            <nav class="navbar navbar-default">
+                  <div class="container-fluid">
+                        <div class="navbar-header">
+                              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                              </button>
+                              <a class="navbar-brand" href="{% url 'index' %}">
+                                    <span class="glyphicon glyphicon-education"></span>
+                                    Tarefado
+                              </a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                              <ul class="nav navbar-nav">
+                                    <li>
+                                          <a href="{% url 'materias' %}">
+                                                <span class="glyphicon glyphicon-th-list" style="font-size: 12px; margin-right: 5px"></span>
+                                                Matérias
+                                          </a>
+                                    </li>
+                              </ul>
+
+                              <ul class="nav navbar-nav navbar-right">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                          <a href="{% url 'logout' %}">
+                                                <span class="glyphicon glyphicon-log-out" style="font-size: 12px; margin-right: 5px"></span>
+                                                Sair
+                                          </a>
+                                    </li>
+                                    <li><a>Olá {{ user.username }}!</a></li>
+                                    {% else %}
+                                    <li>
+                                          <a href="{% url 'register' %}">
+                                                <span class="glyphicon glyphicon-edit" style="font-size: 12px; margin-right: 5px"></span>
+                                                Registrar
+                                          </a>
+                                    </li>
+                                    <li>
+                                          <a href="{% url 'login' %}">
+                                                <span class="glyphicon glyphicon-log-in" style="font-size: 12px; margin-right: 5px"></span>
+                                                Login
+                                          </a>
+                                    </li>
+                                    {% endif %}
+                              </ul>
+                        </div>
+                  </div>
+            </nav>
+            <div class="container">
+                  <div class="page-header">{%block header %}{%endblock header %}</div>
+                  <div>{% block content %}{% endblock content %}</div>
+            </div>
+      </body>
+</html>

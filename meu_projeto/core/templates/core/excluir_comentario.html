@@ -1,0 +1,12 @@
+{% extends "core/base.html" %} {% load bootstrap3 %} {% block header %}
+
+<h2 style="margin-top: -120px; margin-bottom: 30px">Tem certeza que deseja excluir este comentário?</h2>
+{% endblock header %} {% block content %}
+
+<form action="{% url 'excluir_comentario' comentario.id %}" method="post">
+      {% csrf_token %} {% buttons %}
+      <button name="excluir" class="btn btn-danger" style="border-radius: 8px">Sim, excluir comentário</button>
+      {% endbuttons %}
+</form>
+
+{% endblock content %}

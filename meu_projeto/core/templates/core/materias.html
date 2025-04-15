@@ -1,0 +1,22 @@
+{% extends "core/base.html" %} {% block header %}
+<div style="margin-top: -120px; margin-bottom: 30px">
+      <h1>Matérias:</h1>
+</div>
+
+{% endblock header %} {% block content %}
+
+<ul>
+      {% for materia in materias%}
+      <li>
+            <h3>
+                  <a href="{% url 'materia' materia.id %}">{{materia}}</a>
+            </h3>
+      </li>
+      {% empty %}
+      <li>Não há matérias adicionadas</li>
+      {% endfor %}
+</ul>
+<h3>
+      <a href="{% url 'nova_materia' %}">Nova matéria</a>
+</h3>
+{% endblock content %}

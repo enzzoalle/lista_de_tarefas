@@ -1,0 +1,16 @@
+{% extends "core/base.html" %} {% load bootstrap3 %} {% block header %}
+
+<h1 style="margin-top: -120px; margin-bottom: 30px">
+      <a href="{% url 'materia' materia.id %}">{{materia}}</a>
+</h1>
+
+{% endblock header %} {% block content %}
+
+<h3>Adicionar comentário:</h3>
+
+<form action="{% url 'novo_comentario' materia.id %}" method="post" class="form">
+      {% csrf_token %} {% bootstrap_form form %} {% buttons %}
+      <button name="enviar" class="btn btn-primary">Adicionar</button>
+      {% endbuttons %}
+</form>
+{% endblock content %}
